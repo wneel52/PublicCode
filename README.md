@@ -1,2 +1,2 @@
 # PublicCode
-Different projects I have worked on, I do not own the copyright to any of the code published in this respository and all credit will be contained within comments
+Different projects I have worked on. Either school or personal, credit to owners will be added where needed.
