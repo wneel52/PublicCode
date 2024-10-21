@@ -1,0 +1,36 @@
+#!/bin/bash
+
+declare -A totals
+declare -A values
+
+
+while read -r line; do
+    # Use awk to separate key and weight
+    weight=$(echo "$line" | awk '{print $NF}')  # Remove the weight part
+    key=$(echo "$line" | awk -v w="$weight" '{gsub(w, ""); print $0}')  # Remove the weight part
+    #echo $key $weight
+    # Store in the associative array
+    values["$key"]=$weight
+done < input.txt
+
+# Loop through each file in the submissions directory
+for file in submissions/*; do
+    man=`echo $(basename "$file")`
+    total=0
+    for item in "${!values[@]}"; do
+        #echo "${values[$item]} $item"
+        count=$(grep -oiE "${item//+/\\+}?(ed|er|ation|ing|is|s|d|r)?" "$file" | wc -l)
+        total=$(echo "scale=1; $total + ($count * ${values[$item]})" | bc)
+        #echo "$man $item $count"
+    done
+    totals["$man"]=$total
+done
+
+
+# Sort the results and format the output
+for person in "${!totals[@]}"; do
+    count="${totals[$person]}"
+    # Remove trailing .0 or unnecessary zeros in decimal places
+    formatted_count=$(echo "$count" | sed 's/\.0$//; s/\(\.[0-9]*[1-9]\)0*$/\1/')
+    echo "$formatted_count $person"
+done | sort -nr
