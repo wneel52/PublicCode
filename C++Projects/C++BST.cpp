@@ -1,4 +1,4 @@
-// Binary Search Tree Class based off of Mike Zinks python implementation 
+// Binary Search Tree Class from Professor Mike Zink's Python implementation 
 #include <iostream>
 using namespace std;
 
