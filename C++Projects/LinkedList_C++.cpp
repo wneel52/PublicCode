@@ -122,26 +122,4 @@ class LList{
 };
 
 
-int main(){
-
-    LList MyList;
-
-    if(MyList.isEmpty()){
-        
-        MyList.append(10);
-        MyList.append(20);
-        MyList.append(30);
-        MyList.append(40);
-        MyList.append(50);
-        MyList.append(60);
-    }
-
-    MyList.peek();
-    MyList.display();
-    
-    MyList.pop();
-    MyList.display();
-    MyList.peek();
-
-    return 0;
-}
+//EOF
