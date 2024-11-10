@@ -7,4 +7,8 @@ ECE241_Project2_Fall2023-main: Graph theory based project, simulated delivery se
 
 Project 3: Thrid project from my data structres and algorithms course. This is a linear regression model to determine house prices based off of a set of features.
 
+ex22: Shell script using pipelining to sort resumes based on keywords
 
+gofish: Implementation of GoFish in C
+
+SnakeC: ML based snake game
